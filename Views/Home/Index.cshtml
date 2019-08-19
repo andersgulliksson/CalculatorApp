@@ -1,0 +1,26 @@
+﻿@model Calculator.Models.CalculatorViewModel    
+@{    
+    Layout = null;    
+}    
+@using(Html.BeginForm()) 
+{ <fieldset> 
+    <h2> Calculator application </h2> 
+    Enter first value:
+    @Html.EditorFor(x => x.A, new { htmlAttributes = new { @type = "number", @min = "0", @step = "0.01", @value = "0" }})<br/> <br/>
+ 
+    Enter second value:
+    @Html.EditorFor(x => x.B, new { htmlAttributes = new { @type = "number", @min = "0", @step = "0.01", @value = "0" }})<br/> <br/>
+ 
+    <br/> 
+    Select operator: <br/>
+    @Html.RadioButtonFor(model => model.Operator, "add") + <br/>
+    @Html.RadioButtonFor(model => model.Operator, "sub") - <br/>
+    @Html.RadioButtonFor(model => model.Operator, "mul") * <br/>
+    @Html.RadioButtonFor(model => model.Operator, "div") / <br/>
+    <br/><br/>
+    <input type="submit" value="Calculate..." name="command"/> <br/>
+     <br/> <h2> 
+    @Html.Label("Result is :")    
+    @Html.DisplayFor(x => x.Result) </h2> 
+    </fieldset>    
+}
